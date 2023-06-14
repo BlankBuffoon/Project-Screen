@@ -12,8 +12,7 @@ class Project extends Model
         'name',
         'description',
         'status',
-        'maintainers',
-        'developers',
+        'expiration_date',
     ];
 
     use HasFactory;

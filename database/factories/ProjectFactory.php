@@ -23,9 +23,10 @@ class ProjectFactory extends Factory
         ];
 
         return [
-            'name' => fake()->name(),
+            'name' => "Проект: " . fake()->name(),
             'description' => fake()->text(),
             'status' => fake()->randomElement($statuses),
+            'expiration_date' => fake()->date(),
         ];
     }
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('status');
+            $table->date('expiration_date')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
