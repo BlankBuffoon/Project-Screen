@@ -8,6 +8,10 @@
 - NodeJS (v 16+)
 - Npm (v 9+)
 
+### Additional dependencies
+
+For faster composer operation, you can install unzip into your system using `sudo apt install zip unzip php-zip`. You can also use nvm to manage nodejs versions.
+
 ## Installation
 
 Application installation process
