@@ -3,13 +3,14 @@
 ## Requires
 
 - Docker
-- Composer (v)
-- NodeJS (v16+)
-- Npm
+- Php (v 8.1+)
+- Composer (v 2.5+)
+- NodeJS (v 16+)
+- Npm (v 9+)
 
 ## Installation
 
-Installation process
+Application installation process
 
 ### Step 1. Install Dependencies
 
