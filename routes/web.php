@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::any('/{any}', function(){
-    return response('Web routes are disabled. Use /api', 400);
-})->where('any', '.*');
-
 Route::fallback(function(){
-    return response('Web routes are disabled. Use /api', 400);
+    return response()->json(['message' => 'Web routes are disabled. Use API'], 400);
 });
