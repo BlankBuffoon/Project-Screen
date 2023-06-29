@@ -1,5 +1,22 @@
-# Project Screen
+<p align="center">
+    <img src='logo.svg' style='margin: 0 auto;'>
+</p>
 
+<p align='center'>
+    <img src='https://img.shields.io/github/downloads/BlankBuffoon/Project-Screen/total'>
+    <img src='https://img.shields.io/github/last-commit/BlankBuffoon/Project-Screen/main'>
+    <img src='https://img.shields.io/github/contributors/BlankBuffoon/Project-Screen'>
+</p>
+
+---
+
+## Content
+- [Requires](#requires)
+- [Installation](#installation)
+- [Application variables](#variables)
+- [Application Directory structure](#directory-structure)
+
+<a id="requires"></a>
 ## Requires
 
 - Docker
@@ -12,6 +29,7 @@
 
 For faster composer operation, you can install unzip into your system using `sudo apt install zip unzip php-zip`. You can also use nvm to manage nodejs versions.
 
+<a id="installation"></a>
 ## Installation
 
 Application installation process
@@ -26,21 +44,23 @@ Run `cd ./frontend && npm install` to install nodejs dependencies.
 
 Run `docker version` and check is docker has installed and running.
 
-### Step 3. Run Backend
+### Step 3. Run Application
 
 1. Use allias `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'` for more comfortable use of sail.
 2. Decrypt laravel application key with command `sail artisan env:decrypt --key=<application key>`. The application key will be listed below.
 3. Run `sail up`
-4. Your application will be available at `http://localhost`
+4. Your application will be available at `http://localhost` - for backend, and `http://localhost:8080` - for frontend. 
 
-## After installation
+### After installation
 
 After installation, you can test the application. To do this, run migrations and database seeders using `sail artisan migrate --seed`. After that, you will be able to check the performance of the application on test data from the database.
 
+<a id="variables"></a>
 ## Application variables
  
 - Env decryption key: `base64:9cvr+o4rc0XvwD1iC1arErL7prbgyFnerK3pnIHOiNw=`
 
+<a id="directory-structure"></a>
 ## Application Directory structure
 
 ```
