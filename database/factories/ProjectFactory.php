@@ -16,16 +16,11 @@ class ProjectFactory extends Factory
      */
     public function definition(): array
     {
-        $statuses = [
-            'Stopped',
-            'In progress',
-            'Done',
-        ];
 
         return [
-            'name' => "Проект: " . fake()->name(),
+            'name' => fake()->name(),
             'description' => fake()->text(),
-            'status' => fake()->randomElement($statuses),
+            'status' => rand(0, 3),
             'expiration_date' => fake()->date(),
         ];
     }
