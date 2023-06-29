@@ -1,0 +1,57 @@
+@import './fonts.scss';
+
+// Color pallete
+
+:root {
+    --background-c: #000501;
+
+    --border-c: #4E4E4E;
+
+    --text-c: #ffffff;
+    --status-red-c: #FF4242;
+    --status-yellow-c: #F8F272;
+    --status-green-c: #66C54E;
+    --status-white-c: #B7B7B7;
+
+    --pagination-active-c: #DBDBDB;
+    --pagination-inactive-c: #7D7D7D;
+}
+
+// Main parameters
+
+:root {
+    --container-width: 1440px;
+    --container-padding: 30px;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text-c);
+    background: var(--background-c);
+    transition: color 0.5s, background-color 0.5s;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    a {
+        color: var(--text-c);
+    }
+}
+
+.container {
+    max-width: calc(var(--container-width) + var(--container-padding) * 2);
+    padding: 0 var(--container-padding) 0 var(--container-padding);
+    margin: 0 auto;
+}

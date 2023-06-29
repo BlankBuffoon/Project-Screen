@@ -1,0 +1,32 @@
+// Hind Guntur Font Family
+// Designed by Indian Type Foundry
+
+@font-face {
+    font-family: 'Hind Guntur';
+    font-weight: light;
+    src: url('@/assets/fonts/HindGuntur-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Hind Guntur';
+    font-weight: bold;
+    src: url('@/assets/fonts/HindGuntur-Bold.ttf') format('truetype');
+}
+
+// Montserrat Font Family
+// Designed by Julieta Ulanovsky, Sol Matas, Juan Pablo del Peral, Jacques Le Bailly
+
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: light;
+    src: url('@/assets/fonts/Montserrat-Light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: normal;
+    src: url('@/assets/fonts/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    src: url('@/assets/fonts/Montserrat-Bold.ttf') format('truetype');
+}
