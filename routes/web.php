@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/projects', function () {
-    $projects = Project::all();
-    return view('projects', ['projects' => $projects]);
+Route::any('/{any}', function(){
+    return response('Web routes are disabled. Use /api', 400);
+})->where('any', '.*');
+
+Route::fallback(function(){
+    return response('Web routes are disabled. Use /api', 400);
 });
