@@ -1,5 +1,6 @@
 <script setup>
 import StatusCircle from './StatusCircle.vue';
+import WorkerList from './WorkerList.vue';
 
 defineProps({
     project: {
@@ -14,31 +15,13 @@ defineProps({
             <div class="descr">
                 <div class="title">
                     <StatusCircle :status="project.status"/>
-                    <h2>{{ project.name }}</h2>
+                    <h2>{{  project.id + project.name }}</h2>
                 </div>
                 <p>{{ project.description }}</p>
             </div>
-            <div class="workers">
-                <div class="maintainers">
-                    <h3>maintainers:</h3>
-                    <div class="workers-list">
-                        <ul>
-                            <li>Alex Test</li>
-                            <li>Alex Test</li>
-                            <li>Alex Test</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="developers">
-                    <h3>Developers:</h3>
-                    <div class="workers-list">
-                        <ul>
-                            <li>Alex Test</li>
-                            <li>Alex Test</li>
-                            <li>Alex Test</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="workers-wrapper">
+                <WorkerList title="maintainers:" :workers="project.maintainers"/>
+                <WorkerList title="developers:" :workers="project.developers"/>
             </div>
         </div>
     </div>
@@ -47,8 +30,8 @@ defineProps({
 <style lang="scss" scoped>
 
 .item {
-    width: 700px;
-    height: 375px;
+    width: 710px;
+    min-height: 375px;
     border-radius: 15px;
     border: 3px solid #4E4E4E;
     padding: 30px;
@@ -69,57 +52,19 @@ defineProps({
 
 .descr {
     width: 100%;
-    min-height: 125px;
 
     p {
         width: 100%;
+        margin-top: 12px;
     }
 }
 
-.workers {
+.workers-wrapper {
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 100%;
     gap: 25px;
-
-
-    &-list {
-        height: 100%;
-        width: 100%;
-
-        ul {
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-
-            gap: 12px;
-            justify-content: center;
-            align-items: center;
-
-            li {
-                font-size: 16px;
-                text-transform: capitalize;
-            }
-        }
-    }
-}
-
-.developers, .maintainers {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    flex: 1 0 0;
-    align-self: stretch;
-    border: 1px solid #808080;
-
-    h3 {
-        font-size: 18px;
-        width: 100%;
-        text-align: center;
-    }
 }
 
 .title {
