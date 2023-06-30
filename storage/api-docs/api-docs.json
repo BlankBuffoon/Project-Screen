@@ -1,0 +1,255 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Project Screen",
+        "description": "API documentation",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/projects/": {
+            "get": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Get Projects list",
+                "description": "Display a listing of the resource.",
+                "operationId": "f1c002386b2bb7f703f0131f660adf4e",
+                "responses": {
+                    "200": {
+                        "description": "Get all Projects from database"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Create project",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "862bdafd8333f82b692c984dcc203353",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateProjectRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return a new project"
+                    },
+                    "422": {
+                        "description": "Invalid parameters"
+                    }
+                }
+            }
+        },
+        "/api/projects/{id}": {
+            "get": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Get project from id",
+                "description": "Display the specified resource.",
+                "operationId": "af32aed47c19d517816e0b970d60cd5a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return a project"
+                    },
+                    "404": {
+                        "description": "Invalid ID"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Remove a project",
+                "description": "Remove the specified resource from storage.",
+                "operationId": "187865e30ff6b72f1cea3037d9dd84fa",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a message about successful deletion",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "message": "Succesfully destroyed"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Invalid ID"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Update project",
+                "description": "Update the specified resource in storage.",
+                "operationId": "79fb1fcf30a758547f944dc89bbb3120",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Project ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateProjectRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Return a project"
+                    },
+                    "404": {
+                        "description": "Invalid ID"
+                    },
+                    "422": {
+                        "description": "Invalid request body"
+                    }
+                }
+            }
+        },
+        "/api/projects/getAllDetailed": {
+            "get": {
+                "tags": [
+                    "Projects"
+                ],
+                "summary": "Get All project information with developers and maintainers",
+                "description": "Remove the specified resource from storage.",
+                "operationId": "0a7d8988699118c8f0dad4f2b658ccde",
+                "responses": {
+                    "200": {
+                        "description": "Returns a project info"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CreateProjectRequest": {
+                "properties": {
+                    "name": {
+                        "description": "Project Name",
+                        "type": "string",
+                        "example": "Project Screen"
+                    },
+                    "description": {
+                        "description": "Project Description",
+                        "type": "string",
+                        "example": "Project to display your projects on a big juicy screen :)"
+                    },
+                    "status": {
+                        "description": "Project Status",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "expiration_date": {
+                        "description": "Project Expiration Date (on ymd format)",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2021-10-02"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateProjectRequest": {
+                "properties": {
+                    "name": {
+                        "description": "Project Name",
+                        "type": "string",
+                        "example": "Project Screen"
+                    },
+                    "description": {
+                        "description": "Project Description",
+                        "type": "string",
+                        "example": "Project to display your projects on a big juicy screen :)"
+                    },
+                    "status": {
+                        "description": "Project Status",
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "expiration_date": {
+                        "description": "Project Expiration Date (on ymd format)",
+                        "type": "string",
+                        "format": "date",
+                        "example": "2021-10-02"
+                    }
+                },
+                "type": "object"
+            },
+            "ProjectResource": {
+                "properties": {
+                    "id": {
+                        "type": "id",
+                        "example": "11"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Project Screen"
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Some Project description"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "date": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2021-03-12"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

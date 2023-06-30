@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('projects/getAllDetailed', [ProjectController::class, 'getAllProjectDetailed']);
 Route::apiResource('projects', ProjectController::class);
 
 Route::fallback(function () {
