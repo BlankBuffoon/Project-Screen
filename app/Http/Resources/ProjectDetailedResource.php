@@ -20,6 +20,7 @@ class ProjectDetailedResource extends JsonResource
             'description' => $this->description,
             'status' => $this->status,
             'expiration_date' => $this->expiration_date,
+            'remaining_days' => $this->calculeteRemainingDays(),
             'maintainers' => MaintainerResource::collection($this->maintainers()->get()),
             'developers' => DeveloperResource::collection($this->developers()->get()),
         ];
