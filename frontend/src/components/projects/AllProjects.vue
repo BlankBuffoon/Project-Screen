@@ -25,10 +25,11 @@ import SingleProject from './SingleProject.vue'
     },
     mounted() {
       this.fetchProjects();
+      setInterval(this.fetchProjects, 3000);
     },
     methods: {
       fetchProjects() {
-        apiService.get('/projects')
+        apiService.get('/projects/getAllDetailed')
           .then(response => {
             this.projects = response.data;
           })
@@ -55,6 +56,7 @@ import SingleProject from './SingleProject.vue'
     .wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
         justify-items: center;
         align-items: center;
         gap: 20px;

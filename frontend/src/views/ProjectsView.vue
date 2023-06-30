@@ -6,7 +6,9 @@ import AllProjects from '../components/projects/AllProjects.vue';
 
 <template>
     <main>
-        <AllProjects/>
+        <div class="container">
+            <AllProjects/>
+        </div>
     </main>
 </template>
 
