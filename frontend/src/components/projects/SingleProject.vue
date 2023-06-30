@@ -1,4 +1,5 @@
 <script setup>
+import Expiration from './Expiration.vue';
 import StatusCircle from './StatusCircle.vue';
 import WorkerList from './WorkerList.vue';
 
@@ -15,7 +16,7 @@ defineProps({
             <div class="descr">
                 <div class="title">
                     <StatusCircle :status="project.status"/>
-                    <h2>{{  project.id + project.name }}</h2>
+                    <h2>{{ project.name }}</h2>
                 </div>
                 <p>{{ project.description }}</p>
             </div>
@@ -23,6 +24,9 @@ defineProps({
                 <WorkerList title="maintainers:" :workers="project.maintainers"/>
                 <WorkerList title="developers:" :workers="project.developers"/>
             </div>
+        </div>
+        <div class="right">
+            <Expiration :remaining-days="project.remaining_days" :expiration-date="project.expiration_date"/>
         </div>
     </div>
 </template>
@@ -77,5 +81,14 @@ defineProps({
         width: 100%;
     }
 }
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 
 </style>
