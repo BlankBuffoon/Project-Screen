@@ -7,58 +7,113 @@ import SingleProject from './SingleProject.vue'
 
 <template>
     <div class="projects">
-        <h1>Projects</h1>
-        <div class="wrapper">
-            <SingleProject v-for="project in projects" :project="project"/>
-        </div>
+        <Swiper
+        :slides-per-view="2"
+        :autoplay="{
+            delay: 5000,
+            disableOnInteraction: false,
+        }"
+        :short-swipes="true"
+        :grid="{
+            rows: 2,
+        }"
+        :spaceBetween="20"
+        :pagination="{ clickable: true }"
+        @swiper="onSwiper"
+        @slideChange="onSlideChange"
+        :modules="modules"
+        >
+            <swiper-slide v-for="project, index in projects">
+                <SingleProject :project="project" :index="index"/>
+            </swiper-slide>
+        </Swiper>
     </div>
 </template>
 
 <script>
-  import apiService from '@/services/apiService.js';
+import apiService from '@/services/apiService.js';
 
-  export default {
+import { Grid, Pagination, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+
+import 'swiper/css/grid';
+// import 'swiper/css/pagination'
+import '@/assets/swiper-pagination.scss'
+
+export default {
+    components: {
+        Swiper,
+        SwiperSlide,
+    },
     data() {
-      return {
-        projects: [],
-      };
+        return {
+            projects: [],
+            modules: [ Grid, Pagination, Autoplay ],
+        };
     },
     mounted() {
-      this.fetchProjects();
-      setInterval(this.fetchProjects, 3000);
+        // this.fetchProjects();
+        setInterval(this.fetchProjects, 10000);
     },
     methods: {
-      fetchProjects() {
+        fetchProjects() {
         apiService.get('/projects/getAllDetailed')
-          .then(response => {
-            this.projects = response.data;
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      },
+            .then(response => {
+                this.projects = response.data;
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        },
+        onSlideChange() {
+            console.log('slide change');
+        },
+        onSwiper(swiper) {
+            console.log(swiper);
+        },
     },
-  };
+};
 </script>
 
 <style lang="scss" scoped>
-    .projects {
+
+    .swiper {
+        height: 850px;
+        margin-left: auto;
+        margin-right: auto;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .swiper-slide {
+        height: 375px;
+        width: 710px;
+
+        /* Center slide text vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-pagination-bullet {
+        width: 20px;
+        height: 20px;
+    }
+
+    .projects {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 100vh;
+
+        margin-top: auto;
+        margin-bottom: auto;
 
         h1 {
             margin-bottom: 30px;
         }
-    }
-
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr;
-        justify-items: center;
-        align-items: center;
-        gap: 20px;
     }
 </style>

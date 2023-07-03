@@ -6,6 +6,10 @@ import WorkerList from './WorkerList.vue';
 defineProps({
     project: {
         type: Object,
+    },
+
+    index: {
+        type: Number,
     }
 })
 </script>
@@ -16,7 +20,7 @@ defineProps({
             <div class="descr">
                 <div class="title">
                     <StatusCircle :status="project.status"/>
-                    <h2>{{ project.name }}</h2>
+                    <h2>{{ (index + 1) + ". " + project.name }}</h2>
                 </div>
                 <p>{{ project.description }}</p>
             </div>
@@ -42,7 +46,7 @@ defineProps({
 
     display: grid;
     grid-template-columns: 450px 160px;
-    gap: 50px;
+    gap: 40px;
 }
 
 .left {

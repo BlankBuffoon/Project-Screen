@@ -1,0 +1,29 @@
+.swiper-pagination {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+
+    &-bullet {
+        width: 18px;
+        height: 18px;
+        background: #7D7D7D;
+        display: block;
+        border-radius: 20px;
+
+        transition: all .3s;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        &-active {
+            width: 48px;
+            height: 18px;
+            background: #DBDBDB;
+        }
+    }
+}
+
+
+
