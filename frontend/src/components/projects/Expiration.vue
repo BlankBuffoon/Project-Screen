@@ -8,7 +8,7 @@ defineProps({
     },
 
     expirationDate: {
-        type: Date,
+        type: String,
         required: true,
     }
 })
