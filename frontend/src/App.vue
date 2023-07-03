@@ -6,10 +6,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
     <div class="container">
-        <!-- <button id="togglemenu" onclick="toggleMenu()">CLICK</button>
-        <nav>
+        <nav v-if="!$route.meta.hideNavbar">
             <RouterLink to="/projects">Projects</RouterLink>
-        </nav> -->
+        </nav>
     </div>
 
     <RouterView/>
@@ -25,9 +24,5 @@ import { RouterLink, RouterView } from 'vue-router'
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-nav {
-    display: none;
 }
 </style>

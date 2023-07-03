@@ -11,9 +11,12 @@ const router = createRouter({
         component: Home
     },
     {
-      path: '/projects',
-      name: 'projects',
-      component: Projects
+        path: '/projects',
+        name: 'projects',
+        component: Projects,
+        meta: {
+            hideNavbar: true,
+        }
     },
   ]
 })
