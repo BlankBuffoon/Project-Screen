@@ -38,7 +38,7 @@ Application installation process
 
 Run `composer install` to install composer dependencies. Sometimes you may get composer errors, in this case use the flag `--ignore platform-reqs`
 
-Install dependencies from `package.you` don't need json for vue. The Docker compose configuration provides for automatic installation of dependencies inside the container
+Install dependencies from `package.json` don't need json for vue. The Docker compose configuration provides for automatic installation of dependencies inside the container
 
 ### Step 2. Check is Docker running
 
