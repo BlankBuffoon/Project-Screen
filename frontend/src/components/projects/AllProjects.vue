@@ -2,10 +2,13 @@
 <script setup>
 
 import SingleProject from './SingleProject.vue'
+import Loading from '@/components/Loading.vue'
 
 </script>
 
 <template>
+    <Loading v-show="loading" />
+
     <div class="projects">
         <Swiper
         :slides-per-view="2"
@@ -22,6 +25,7 @@ import SingleProject from './SingleProject.vue'
         @swiper="onSwiper"
         @slideChange="onSlideChange"
         :modules="modules"
+        v-if="!loading"
         >
             <swiper-slide v-for="project, index in projects">
                 <SingleProject :project="project" :index="index"/>
@@ -50,10 +54,10 @@ export default {
         return {
             projects: [],
             modules: [ Grid, Pagination, Autoplay ],
+            loading: true,
         };
     },
     mounted() {
-        // this.fetchProjects();
         setInterval(this.fetchProjects, 10000);
     },
     methods: {
@@ -61,6 +65,7 @@ export default {
         apiService.get('/projects/getAllDetailed')
             .then(response => {
                 this.projects = response.data;
+                this.loading = false;
             })
             .catch(error => {
                 console.error(error);
