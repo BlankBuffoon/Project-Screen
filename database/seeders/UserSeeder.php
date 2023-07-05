@@ -15,8 +15,8 @@ class UserSeeder extends Seeder
     {
         User::factory(1)->create(
             [
-                'name' => 'Luke Skywalker',
-                'email' => 'luke@jedi.com',
+                'name' => 'Root Administrator',
+                'email' => 'admin@projectscreen.ru',
                 'email_verified_at' => null,
             ]
         );
