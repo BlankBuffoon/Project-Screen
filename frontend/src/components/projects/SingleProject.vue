@@ -39,7 +39,7 @@ defineProps({
 
 .item {
     width: 710px;
-    min-height: 375px;
+    height: 375px;
     border-radius: 15px;
     border: 3px solid #4E4E4E;
     padding: 30px;

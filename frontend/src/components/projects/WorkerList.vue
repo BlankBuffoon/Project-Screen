@@ -41,7 +41,7 @@ defineProps({
         align-items: center;
 
         li {
-            font-size: 16px;
+            font-size: 14px;
             text-transform: capitalize;
         }
     }
@@ -58,7 +58,7 @@ defineProps({
     border: 1px solid #808080;
 
     h3 {
-        font-size: 18px;
+        font-size: 16px;
         width: 100%;
         text-align: center;
     }

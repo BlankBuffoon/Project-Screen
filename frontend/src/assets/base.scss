@@ -37,7 +37,7 @@ button, a {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     color: var(--text-c);
     background: var(--background-c);
     transition: color 0.5s, background-color 0.5s;
@@ -54,4 +54,5 @@ body {
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
     padding: 0 var(--container-padding) 0 var(--container-padding);
     margin: 0 auto;
+    position: relative;
 }
