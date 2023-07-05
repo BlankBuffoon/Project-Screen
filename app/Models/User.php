@@ -42,6 +42,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'is_admin' => 'boolean',
     ];
 
     public function maintained_project() {
@@ -50,5 +51,10 @@ class User extends Authenticatable
 
     public function developed_project() {
         return $this->belongsToMany(Project::class, 'developers');
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->is_admin;
     }
 }
