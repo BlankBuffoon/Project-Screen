@@ -25,8 +25,8 @@ defineProps({
                 <p>{{ project.description }}</p>
             </div>
             <div class="workers-wrapper">
-                <WorkerList title="maintainers:" :workers="project.maintainers"/>
-                <WorkerList title="developers:" :workers="project.developers"/>
+                <WorkerList title="Руководители:" :workers="project.maintainers"/>
+                <WorkerList title="разработчики:" :workers="project.developers"/>
             </div>
         </div>
         <div class="right">

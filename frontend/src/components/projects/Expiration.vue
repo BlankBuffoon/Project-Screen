@@ -17,7 +17,7 @@ defineProps({
 <template>
     <RemainigDays :days="remainingDays"/>
     <div class="expiration-days">
-        <h3>Expiration date:</h3>
+        <h3>Срок сдачи:</h3>
         <p>{{ expirationDate }}</p>
     </div>
 </template>
