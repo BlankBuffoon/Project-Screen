@@ -47,7 +47,7 @@ Run `docker version` and check is docker has installed and running.
 ### Step 3. Run Application
 
 1. Use allias `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'` for more comfortable use of sail.
-2. Decrypt laravel application key with command `sail artisan env:decrypt --key=<application key>`. The application key will be listed below.
+2. Decrypt laravel application key with command `php artisan env:decrypt --key=<application key>`. The application key will be listed below.
 3. Run `sail up`
 4. Your application will be available at `http://localhost` - for frontend, and `http://localhost:8081` - for backend (you can change this ports in `.env` file). 
 
